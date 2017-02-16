@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Pmclain_Tfa extension
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GPL v3 License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.gnu.org/licenses/gpl.txt
+ *
+ * @category  Pmclain
+ * @package   Pmclain_Tfa
+ * @copyright Copyright (c) 2017
+ * @license   https://www.gnu.org/licenses/gpl.txt GPL v3 License
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+
+        <referenceContainer name="form.additional.info">
+          <block class="Magento\Backend\Block\Template" name="adminhtml_auth_login_tfa" template="Pmclain_Tfa::admin/tfa_field.phtml"/>
+        </referenceContainer>
+
+  </body>
+</page>

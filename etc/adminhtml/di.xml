@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Pmclain_Tfa extension
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the GPL v3 License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://www.gnu.org/licenses/gpl.txt
+ *
+ * @category       Pmclain
+ * @package        Tfa
+ * @copyright      Copyright (c) 2017
+ * @license        https://www.gnu.org/licenses/gpl.txt GPL v3 License
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+  <type name="Magento\User\Model\User">
+    <plugin name="pmclain_tfa_user_model_user" type="Pmclain\Tfa\Plugin\User" sortOrder="10" />
+  </type>
+  <!-- TODO: there has to be a better way than these preferences -->
+  <preference for="Magento\Backend\Block\System\Account\Edit\Form" type="Pmclain\Tfa\Block\Backend\System\Account\Edit\Form" />
+</config>

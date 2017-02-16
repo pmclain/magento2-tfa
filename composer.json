@@ -2,7 +2,6 @@
   "name": "pmclain/magento2-tfa",
   "description": "Two Factor Authentication for Magento 2 Admin",
   "type": "magento2-module",
-  "version": "0.0.1",
   "license": [
     "GPL-3.0"
   ],

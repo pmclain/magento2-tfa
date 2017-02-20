@@ -12,7 +12,7 @@ In your Magento 2 base directory run:
 * TFA must be enabled by the individual user by clicking 'Account Setting(user)' in the Magento 2 admin panel.
 * Once there, the user is able to enable the two factor authentication and view the QR code for a Google Authenticator compatible application.
 * Users with TFA enabled will not be able to log into the admin panel without a valid authentication code input on the Magento 2 admin login page.
-* Users with TAF disabled can leave the 'Authenticator Code' field blank during login.
+* Users with TFA disabled can leave the 'Authenticator Code' field blank during login.
 
 ## Google Authenticator Apps:
 

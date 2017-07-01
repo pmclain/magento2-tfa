@@ -172,9 +172,28 @@ class Form extends \Magento\Backend\Block\System\Account\Edit\Form
       $user->getEmail(),
       $user->getTfaSecret()
     );
-    $img = "<img src=\"$qrImage\" />";
+    $img = "<img id=\"qr-img\" src=\"$qrImage\" />";
     $message = __('Scan the QR code below with Google Authenticator.');
+    $updateButton = $this->_getUpdateQrButton();
 
-    return "<p>$message</p>$img";
+    return "<p>$message</p>$img<p>$updateButton</p>";
+  }
+
+  protected function _getUpdateQrButton() {
+    $button = "<button class=\"scalable\" type=\"button\" id=\"update-qr\" data-mage-init='{\"tfa\":{";
+    $button .= "\"url\": \"{$this->_getAjaxUrl()}\",";
+    $button .= "\"elementId\": \"update-qr\"}, \"validation\": {}}'>";
+    $button .= "<span><span><span id=\"update-qr\">{$this->_getUpdateButtonLabel()}</span></span></span>";
+    $button .= "</button>";
+
+    return $button;
+  }
+
+  protected function _getAjaxUrl() {
+    return $this->_urlBuilder->getUrl('admin/system_account_tfa/update');
+  }
+
+  protected function _getUpdateButtonLabel() {
+    return __('Update QR');
   }
 }

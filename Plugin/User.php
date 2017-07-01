@@ -18,6 +18,7 @@ namespace Pmclain\Tfa\Plugin;
 
 use Magento\Framework\App\Request\Http;
 use PragmaRX\Google2FA\Google2FA;
+use Magento\Backend\Model\Auth\Session;
 
 class User
 {
@@ -27,19 +28,24 @@ class User
   /** @var \PragmaRX\Google2FA\Google2FA; */
   protected $_google2fa;
 
+  /** @var \Magento\Backend\Model\Auth\Session */
+  protected $_authSession;
+
   public function __construct(
     Http $request,
-    Google2FA $google2FA
+    Google2FA $google2FA,
+    Session $session
   ) {
     $this->_request = $request;
     $this->_google2fa = $google2FA;
+    $this->_authSession = $session;
   }
 
   public function beforeVerifyIdentity(
     \Magento\User\Model\User $user,
     $password
   ) {
-    if(!$user->getRequireTfa()) { return [$password]; }
+    if(!$user->getRequireTfa() || $this->_authSession->isLoggedIn()) { return [$password]; }
 
     $authCode = $this->_request->getPost('tfa');
     $valid = $this->_google2fa->verifyKey($user->getTfaSecret(), $authCode);

@@ -14,6 +14,13 @@ In your Magento 2 base directory run:
 * Users with TFA enabled will not be able to log into the admin panel without a valid authentication code input on the Magento 2 admin login page.
 * Users with TFA disabled can leave the 'Authenticator Code' field blank during login.
 
+## Magento Version Compatibility
+| Release | Magento Version |
+| ------- | --------------- |
+| 1.x.x   | 2.2.x           |
+| 1.x.x   | 2.1.x           |
+| 1.x.x   | 2.0.x           |
+
 ## Google Authenticator Apps:
 
 To use the two factor authentication, your user will have to install a Google Authenticator compatible app, below are some currently available:

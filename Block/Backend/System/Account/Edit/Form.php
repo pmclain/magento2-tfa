@@ -49,8 +49,7 @@ class Form extends \Magento\Backend\Block\System\Account\Edit\Form
             $userFactory,
             $authSession,
             $localeLists,
-            $data,
-            $deployedLocales
+            $data
         );
     }
 
@@ -176,7 +175,7 @@ class Form extends \Magento\Backend\Block\System\Account\Edit\Form
             return '<p>' . __('The QR code for Google Authenticator will appear after saving.') . '</p>';
         }
         $qrImage = $this->google2fa->getQRCodeInline(
-            urlencode('Magento 2 Admin'),
+            $this->getBaseUrl(),
             $user->getEmail(),
             $user->getTfaSecret()
         );

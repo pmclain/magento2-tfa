@@ -16,6 +16,13 @@ In your Magento 2 base directory run:
 * Users with TFA enabled will not be able to log into the admin panel without a valid authentication code input on the Magento 2 admin login page.
 * Users with TFA disabled can leave the 'Authenticator Code' field blank during login.
 
+## Console Commands
+TFA can be disabled using console commands if needed:  
+##### Disable TFA For All Admin Users
+`bin/magento pmclain:tfa:disable`  
+##### Disable TFA For Single Admin User (by email)
+`bin/magento pcmlain:tfa:disable admin@example.com`  
+
 ## Magento Version Compatibility
 | Release | Magento Version |
 | ------- | --------------- |

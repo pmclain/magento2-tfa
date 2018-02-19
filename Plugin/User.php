@@ -22,47 +22,51 @@ use Magento\Backend\Model\Auth\Session;
 
 class User
 {
-  /** @var \Magento\Framework\App\Request\Http */
-  protected $_request;
+    /** @var \Magento\Framework\App\Request\Http */
+    protected $request;
 
-  /** @var \PragmaRX\Google2FA\Google2FA; */
-  protected $_google2fa;
+    /** @var \PragmaRX\Google2FA\Google2FA; */
+    protected $google2fa;
 
-  /** @var \Magento\Backend\Model\Auth\Session */
-  protected $_authSession;
+    /** @var \Magento\Backend\Model\Auth\Session */
+    protected $authSession;
 
-  public function __construct(
-    Http $request,
-    Google2FA $google2FA,
-    Session $session
-  ) {
-    $this->_request = $request;
-    $this->_google2fa = $google2FA;
-    $this->_authSession = $session;
-  }
-
-  public function beforeVerifyIdentity(
-    \Magento\User\Model\User $user,
-    $password
-  ) {
-    if(!$user->getRequireTfa() || $this->_authSession->isLoggedIn()) { return [$password]; }
-
-    $authCode = $this->_request->getPost('tfa');
-    $valid = $this->_google2fa->verifyKey($user->getTfaSecret(), $authCode);
-
-    if($valid) { return [$password]; }
-
-    return [false];
-  }
-
-  public function beforeSave(
-    \Magento\User\Model\User $user
-  ) {
-    $user->setRequireTfa($this->_request->getParam('require_tfa'));
-    if(is_null($user->getTfaSecret())) {
-      $user->setTfaSecret($this->_google2fa->generateSecretKey(32));
+    public function __construct(
+        Http $request,
+        Google2FA $google2FA,
+        Session $session
+    ) {
+        $this->request = $request;
+        $this->google2fa = $google2FA;
+        $this->authSession = $session;
     }
 
-    return;
-  }
+    public function beforeVerifyIdentity(
+        \Magento\User\Model\User $user,
+        $password
+    ) {
+        if (!$user->getRequireTfa() || $this->authSession->isLoggedIn()) {
+            return [$password];
+        }
+
+        $authCode = $this->request->getPost('tfa');
+        $valid = $this->google2fa->verifyKey($user->getTfaSecret(), $authCode);
+
+        if ($valid) {
+            return [$password];
+        }
+
+        return [false];
+    }
+
+    public function beforeSave(
+        \Magento\User\Model\User $user
+    ) {
+        $user->setRequireTfa($this->request->getParam('require_tfa'));
+        if (is_null($user->getTfaSecret())) {
+            $user->setTfaSecret($this->google2fa->generateSecretKey(32));
+        }
+
+        return;
+    }
 }

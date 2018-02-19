@@ -45,4 +45,4 @@ To use the two factor authentication, your user will have to install a Google Au
 * [1Password for iOS, Android, OSX, Windows](https://1password.com)
 
 ## License
-GNU GENERAL PUBLIC LICENSE Version 3
+Open Software License v3.0

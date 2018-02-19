@@ -15,28 +15,52 @@ matrix:
   include:
     - php: 7.1
       env:
-       - MAGENTO_VERSION=2.3-develop
-       - TEST_SUITE=unit
+        - MAGENTO_VERSION=2.3-develop
+        - TEST_SUITE=unit
+    - php: 7.1
+      env:
+        - MAGENTO_VERSION=2.3-develop
+        - TEST_SUITE=integration
     - php: 7.1
       env:
         - MAGENTO_VERSION=2.2-develop
         - TEST_SUITE=unit
     - php: 7.1
       env:
+        - MAGENTO_VERSION=2.2-develop
+        - TEST_SUITE=integration
+    - php: 7.1
+      env:
         - MAGENTO_VERSION=2.2.2
+        - TEST_SUITE=unit
+    - php: 7.1
+      env:
+        - MAGENTO_VERSION=2.2.2
+        - TEST_SUITE=integration
+    - php: 7.0
+      env:
+        - MAGENTO_VERSION=2.3-develop
         - TEST_SUITE=unit
     - php: 7.0
       env:
-       - MAGENTO_VERSION=2.3-develop
-       - TEST_SUITE=unit
+        - MAGENTO_VERSION=2.3-develop
+        - TEST_SUITE=integration
     - php: 7.0
       env:
         - MAGENTO_VERSION=2.2-develop
         - TEST_SUITE=unit
     - php: 7.0
       env:
+        - MAGENTO_VERSION=2.2-develop
+        - TEST_SUITE=integration
+    - php: 7.0
+      env:
         - MAGENTO_VERSION=2.2.2
         - TEST_SUITE=unit
+    - php: 7.0
+      env:
+        - MAGENTO_VERSION=2.2.2
+        - TEST_SUITE=integration
 env:
   global:
     - COMPOSER_BIN_DIR=~/bin

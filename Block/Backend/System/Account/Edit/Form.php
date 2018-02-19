@@ -17,16 +17,11 @@
 namespace Pmclain\Tfa\Block\Backend\System\Account\Edit;
 
 use PragmaRX\Google2FA\Google2FA;
-use Magento\Framework\App\ObjectManager;
-use Magento\Framework\Locale\OptionInterface;
 
 class Form extends \Magento\Backend\Block\System\Account\Edit\Form
 {
     /** @var \PragmaRX\Google2FA\Google2FA */
     protected $google2fa;
-
-    /** @var OptionInterface */
-    private $deployedLocales;
 
     public function __construct(
         \Magento\Backend\Block\Template\Context $context,
@@ -36,12 +31,9 @@ class Form extends \Magento\Backend\Block\System\Account\Edit\Form
         \Magento\Backend\Model\Auth\Session $authSession,
         \Magento\Framework\Locale\ListsInterface $localeLists,
         Google2FA $google2FA,
-        array $data = [],
-        OptionInterface $deployedLocales = null
+        array $data = []
     ) {
         $this->google2fa = $google2FA;
-        $this->deployedLocales = $deployedLocales
-            ?: ObjectManager::getInstance()->get(OptionInterface::class);
         parent::__construct(
             $context,
             $registry,
@@ -118,7 +110,7 @@ class Form extends \Magento\Backend\Block\System\Account\Edit\Form
                 'name' => 'interface_locale',
                 'label' => __('Interface Locale'),
                 'title' => __('Interface Locale'),
-                'values' => $this->deployedLocales->getTranslatedOptionLocales(),
+                'values' => $this->_localeLists->getTranslatedOptionLocales(),
                 'class' => 'select'
             ]
         );

@@ -23,7 +23,7 @@ use Magento\Framework\App\Request\Http;
 use Magento\Backend\Model\Auth\Session;
 use PragmaRX\Google2FA\Google2FA;
 
-class UserTest extends \PHPUnit\Framework\TestCase
+class UserTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var User
@@ -56,9 +56,15 @@ class UserTest extends \PHPUnit\Framework\TestCase
             ->setMethods(['getRequireTfa', 'getTfaSecret'])
             ->disableOriginalConstructor()
             ->getMock();
-        $this->requestMock = $this->createMock(Http::class);
-        $this->google2faMock = $this->createMock(Google2FA::class);
-        $this->authSessionMock = $this->createMock(Session::class);
+        $this->requestMock = $this->getMockBuilder(Http::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->google2faMock = $this->getMockBuilder(Google2FA::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->authSessionMock = $this->getMockBuilder(Session::class)
+            ->disableOriginalConstructor()
+            ->getMock();
 
         $this->userPlugin = new User(
             $this->requestMock,

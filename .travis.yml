@@ -15,51 +15,51 @@ matrix:
   include:
     - php: 7.1
       env:
-        - MAGENTO_VERSION=2.3-develop
+        - MAGENTO_VERSION=2.1-develop
         - TEST_SUITE=unit
     - php: 7.1
       env:
-        - MAGENTO_VERSION=2.3-develop
+        - MAGENTO_VERSION=2.1-develop
         - TEST_SUITE=integration
     - php: 7.1
       env:
-        - MAGENTO_VERSION=2.2-develop
+        - MAGENTO_VERSION=2.1.11
         - TEST_SUITE=unit
     - php: 7.1
       env:
-        - MAGENTO_VERSION=2.2-develop
+        - MAGENTO_VERSION=2.1.11
         - TEST_SUITE=integration
     - php: 7.1
       env:
-        - MAGENTO_VERSION=2.2.2
+        - MAGENTO_VERSION=2.0.17
         - TEST_SUITE=unit
     - php: 7.1
       env:
-        - MAGENTO_VERSION=2.2.2
+        - MAGENTO_VERSION=2.0.17
         - TEST_SUITE=integration
     - php: 7.0
       env:
-        - MAGENTO_VERSION=2.3-develop
+        - MAGENTO_VERSION=2.1-develop
         - TEST_SUITE=unit
     - php: 7.0
       env:
-        - MAGENTO_VERSION=2.3-develop
+        - MAGENTO_VERSION=2.1-develop
         - TEST_SUITE=integration
     - php: 7.0
       env:
-        - MAGENTO_VERSION=2.2-develop
+        - MAGENTO_VERSION=2.1.11
         - TEST_SUITE=unit
     - php: 7.0
       env:
-        - MAGENTO_VERSION=2.2-develop
+        - MAGENTO_VERSION=2.1.11
         - TEST_SUITE=integration
     - php: 7.0
       env:
-        - MAGENTO_VERSION=2.2.2
+        - MAGENTO_VERSION=2.0.17
         - TEST_SUITE=unit
     - php: 7.0
       env:
-        - MAGENTO_VERSION=2.2.2
+        - MAGENTO_VERSION=2.0.17
         - TEST_SUITE=integration
 env:
   global:

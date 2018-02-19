@@ -6,8 +6,8 @@
     "OSL-3.0"
   ],
   "require": {
-    "php": "~7.0.0|~7.1.0",
-    "magento/framework": "~101.0.0||~100.3.0",
+    "php": "~5.5.0||~5.6.0||~7.0.0",
+    "magento/framework": "~100.0.0||~100.1.0",
     "pragmarx/google2fa": "~2.0.0",
     "bacon/bacon-qr-code":"~1.0.0"
   },

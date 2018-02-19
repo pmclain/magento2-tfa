@@ -5,7 +5,7 @@ namespace Pmclain\Tfa\Controller\Adminhtml\System\Account\Tfa;
 use Magento\TestFramework\TestCase\AbstractBackendController;
 use Magento\TestFramework\Bootstrap;
 use Magento\User\Block\User\Edit\Tab\Main;
-use \Magento\Framework\Serialize\Serializer\Json;
+use \Magento\Framework\Json\DecoderInterface;
 
 class UpdateTest extends AbstractBackendController
 {
@@ -15,14 +15,14 @@ class UpdateTest extends AbstractBackendController
     protected $uri = 'backend/admin/system_account_tfa/update';
 
     /**
-     * @var Json
+     * @var DecoderInterface
      */
-    private $serializer;
+    private $jsonDecoder;
 
     protected function setUp()
     {
         parent::setUp();
-        $this->serializer = $this->_objectManager->create(Json::class);
+        $this->jsonDecoder = $this->_objectManager->create(DecoderInterface::class);
     }
 
     protected function tearDown()
@@ -41,7 +41,7 @@ class UpdateTest extends AbstractBackendController
         ]);
 
         $this->dispatch($this->uri);
-        $result = $this->serializer->unserialize($this->getResponse()->getBody());
+        $result = $this->jsonDecoder->decode($this->getResponse()->getBody());
 
         $this->assertArrayHasKey('success', $result);
         $this->assertArrayHasKey('message', $result);

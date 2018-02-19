@@ -188,7 +188,7 @@ class Form extends \Magento\Backend\Block\System\Account\Edit\Form
 
     protected function getUpdateQrButton()
     {
-        $button = "<button class=\"scalable\" type=\"button\" id=\"update-qr\" data-mage-init='{\"tfa\":{";
+        $button = "<button class=\"scalable\" type=\"button\" id=\"update-qr\" data-mage-init='{\"Pmclain_Tfa/js/tfa\":{";
         $button .= "\"url\": \"{$this->getAjaxUrl()}\",";
         $button .= "\"elementId\": \"update-qr\"}, \"validation\": {}}'>";
         $button .= "<span><span><span id=\"update-qr\">{$this->getUpdateButtonLabel()}</span></span></span>";

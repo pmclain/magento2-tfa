@@ -3,7 +3,7 @@
   "description": "Two Factor Authentication for Magento 2 Admin",
   "type": "magento2-module",
   "license": [
-    "GPL-3.0"
+    "OSL-3.0"
   ],
   "require": {
     "php": "~7.0.0|~7.1.0",

@@ -1,5 +1,5 @@
 # Magento 2 Admin Panel Two Factor Authentication
-[![Latest Stable Version](https://poser.pugx.org/pmclain/magento2-tfa/v/stable)](https://packagist.org/packages/pmclain/magento2-tfa) [![Total Downloads](https://poser.pugx.org/pmclain/magento2-tfa/downloads)](https://packagist.org/packages/pmclain/magento2-tfa)  
+[![Build Status](https://travis-ci.org/pmclain/magento2-tfa.svg?branch=1.0)](https://travis-ci.org/pmclain/magento2-tfa)[![Latest Stable Version](https://poser.pugx.org/pmclain/magento2-tfa/v/stable)](https://packagist.org/packages/pmclain/magento2-tfa) [![Total Downloads](https://poser.pugx.org/pmclain/magento2-tfa/downloads)](https://packagist.org/packages/pmclain/magento2-tfa)  
 
 Two Factor Authentication to the Magento 2 admin panel using Google Authenticator
 
